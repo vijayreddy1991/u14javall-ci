@@ -1,0 +1,20 @@
+language: java
+
+jdk:
+  - openjdk7
+  - openjdk8
+  - oraclejdk10
+  - oraclejdk8
+ 
+build:
+  pre_ci_boot:
+    image_name: drydock/u14javall
+    image_tag: master
+    pull: true
+    
+  ci:
+    - java -version
+    - echo $SHIPPABLE_JDK_VERSION
+    - mvn --version    
+    - ant -version 
+    - gradle --version
